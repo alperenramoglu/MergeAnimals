@@ -84,4 +84,5 @@ public class UIManager : MonoBehaviour
     {
         _GameOverScane.SetActive(true);
     }
+    
 }

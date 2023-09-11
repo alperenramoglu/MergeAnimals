@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class CubeSpawnerScripts : MonoBehaviour
 {
     public static CubeSpawnerScripts Instance;
@@ -11,6 +11,8 @@ public class CubeSpawnerScripts : MonoBehaviour
     public Transform spawnPoint;
     private UIManager _uýManager;
 
+    public GameObject lion, bunny, cow, panda,farm;
+    public Image farmcolor;
     private void Awake()
     {
         _uýManager = GameObject.Find("Canvas").GetComponent<UIManager>();
@@ -24,7 +26,14 @@ public class CubeSpawnerScripts : MonoBehaviour
     {
         currentCube = PickRandomCube();
         Spawner = 4;
-
+        farmcolor= farm.GetComponent<Image>();
+        /*var tempColor = farmcolor.color;
+        tempColor.a = 0.5f;
+        farmcolor.color = tempColor;*/
+    }
+    private void Update()
+    {
+        newAnimalControl();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -40,5 +49,31 @@ public class CubeSpawnerScripts : MonoBehaviour
     {
         GameObject temp = Instantiate(cubeList[Random.Range(0, Spawner)].gameObject, spawnPoint.position, Quaternion.Euler(0,-180,0));
         return temp.GetComponent<CubeScripts>();
+    }
+
+    public void newAnimalControl()
+    {
+        
+        if (Spawner == 4)
+        {
+            lion.SetActive(true);
+           
+        }
+        if (Spawner == 5)
+        {
+            lion.SetActive(false);
+            bunny.SetActive(true);
+            
+        }
+        if (Spawner == 6)
+        {
+            bunny.SetActive(false);
+            cow.SetActive(true);
+        }
+        if (Spawner == 7)
+        {
+            cow.SetActive(false);
+            panda.SetActive(true);
+        }
     }
 }
