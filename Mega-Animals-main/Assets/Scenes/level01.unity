@@ -3316,10 +3316,6 @@ MonoBehaviour:
   newAnimalPuan: 2
   newAnimalText: {fileID: 7095322}
   HighScoreText: {fileID: 564866687}
-  lion: {fileID: 122899720}
-  bunny: {fileID: 71655286}
-  cow: {fileID: 1791235794}
-  panda: {fileID: 1245304527}
 --- !u!1 &910325000
 GameObject:
   m_ObjectHideFlags: 0
@@ -3778,6 +3774,12 @@ MonoBehaviour:
   - {fileID: 4058357071911745581, guid: 405a54c3a6c7af24d8b5d15e224ca4f4, type: 3}
   currentCube: {fileID: 0}
   spawnPoint: {fileID: 1544810896}
+  lion: {fileID: 122899720}
+  bunny: {fileID: 71655286}
+  cow: {fileID: 1791235794}
+  panda: {fileID: 1245304527}
+  farm: {fileID: 1023027231}
+  farmcolor: {fileID: 1023027233}
 --- !u!65 &1061551900
 BoxCollider:
   m_ObjectHideFlags: 0
