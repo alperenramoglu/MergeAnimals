@@ -169,7 +169,7 @@ MonoBehaviour:
   CubeNumber: 0
   CubeRigidbody: {fileID: 3664996076015691978}
   IsMainCube: 0
-  value: 2
+  value: 10
   _gameManager: {fileID: 0}
   _particleSystem: {fileID: 8202728001287004628, guid: dca5bba98a5503a4c895ec5cc0918b13, type: 3}
   _sprite: {fileID: 2948169736455921605}
@@ -185,7 +185,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.96501184, z: 1}
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0.59605086, z: 0}
 --- !u!54 &3664996076015691978
 Rigidbody:

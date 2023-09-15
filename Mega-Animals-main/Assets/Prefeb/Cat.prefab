@@ -248,7 +248,7 @@ MonoBehaviour:
   CubeNumber: 0
   CubeRigidbody: {fileID: 7371326742774227322}
   IsMainCube: 0
-  value: 2
+  value: 9
   _gameManager: {fileID: 0}
   _particleSystem: {fileID: 8202728001287004628, guid: dca5bba98a5503a4c895ec5cc0918b13, type: 3}
   _sprite: {fileID: 7632652774088264494}

@@ -310,7 +310,7 @@ MonoBehaviour:
   CubeNumber: 0
   CubeRigidbody: {fileID: 480209808559388314}
   IsMainCube: 0
-  value: 1
+  value: 2
   _gameManager: {fileID: 0}
   _particleSystem: {fileID: 8202728001287004628, guid: dca5bba98a5503a4c895ec5cc0918b13, type: 3}
   _sprite: {fileID: 6460971779042573780}
@@ -326,8 +326,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.9725499, z: 1}
-  m_Center: {x: 0, y: 0.61037034, z: 0}
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0.60088044, z: 0}
 --- !u!54 &480209808559388314
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -542,7 +542,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b1b4b334711720843b604674c0acc02f, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.2509804}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

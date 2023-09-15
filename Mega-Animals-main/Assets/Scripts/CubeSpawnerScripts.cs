@@ -11,7 +11,7 @@ public class CubeSpawnerScripts : MonoBehaviour
     public Transform spawnPoint;
     private UIManager _uýManager;
 
-    public GameObject lion, bunny, cow, panda,farm;
+    public GameObject cow, duck, pig, goat,farm;
     public Image farmcolor;
     private void Awake()
     {
@@ -47,7 +47,7 @@ public class CubeSpawnerScripts : MonoBehaviour
     }
     private CubeScripts PickRandomCube()
     {
-        GameObject temp = Instantiate(cubeList[Random.Range(0, Spawner)].gameObject, spawnPoint.position, Quaternion.Euler(0,-180,0));
+        GameObject temp = Instantiate(cubeList[Random.Range(0, Spawner)].gameObject, spawnPoint.position, Quaternion.Euler(-30,-180,0));
         return temp.GetComponent<CubeScripts>();
     }
 
@@ -56,24 +56,24 @@ public class CubeSpawnerScripts : MonoBehaviour
         
         if (Spawner == 4)
         {
-            lion.SetActive(true);
+            cow.SetActive(true);
            
         }
         if (Spawner == 5)
         {
-            lion.SetActive(false);
-            bunny.SetActive(true);
+            cow.SetActive(false);
+            duck.SetActive(true);
             
         }
         if (Spawner == 6)
         {
-            bunny.SetActive(false);
-            cow.SetActive(true);
+            duck.SetActive(false);
+            pig.SetActive(true);
         }
         if (Spawner == 7)
         {
-            cow.SetActive(false);
-            panda.SetActive(true);
+            pig.SetActive(false);
+            goat.SetActive(true);
         }
     }
 }
