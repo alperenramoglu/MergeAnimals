@@ -51,5 +51,10 @@ public class HighScoreManager : MonoBehaviour
             animalControl += 1;
         }
     }
-    
-}
+    public void ScorManager2()
+    {
+        Puan -= 10;
+        scoreText.text = Puan.ToString();
+    }
+
+    }

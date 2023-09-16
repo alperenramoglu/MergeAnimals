@@ -17,6 +17,7 @@ public class CubeScripts : MonoBehaviour
     public int value;
 
     [SerializeField] HighScoreManager _gameManager;
+    [SerializeField] FarmManager _farmManager;
 
     [SerializeField] ParticleSystem _particleSystem;
 
@@ -37,6 +38,7 @@ public class CubeScripts : MonoBehaviour
         _collider = GetComponent<Collider>();
         CubeRigidbody = GetComponent<Rigidbody>();
         _gameManager = GameObject.Find("HighScoreManager").GetComponent<HighScoreManager>();
+        _farmManager = GameObject.Find("FarmManager").GetComponent<FarmManager>();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -67,7 +69,15 @@ public class CubeScripts : MonoBehaviour
                 }
             }
         }
-    }
+        if (collision.gameObject.CompareTag("enemy02"))
+        {
+            StartCoroutine(SetCloseGameObject2());
+            _gameManager.ScorManager2();
+            _collider.material.dynamicFriction = daynanicMat;
+            _farmManager.HungerBar.fillAmount += 0.1f;
+            Destroy(collision.gameObject);
+        }
+       }
     private void Update()
     {
         if (CubeRigidbody.velocity.magnitude == 0)
@@ -85,5 +95,12 @@ public class CubeScripts : MonoBehaviour
         yield return new WaitForSeconds(0.4f);
         Destroy(this.gameObject);
         
+    }
+    public IEnumerator SetCloseGameObject2()
+    {
+        _particleSystem = Instantiate(_particleSystem, gameObject.transform.position, Quaternion.identity);
+        yield return new WaitForSeconds(0.4f);
+        //Destroy(this.gameObject);
+
     }
 }
