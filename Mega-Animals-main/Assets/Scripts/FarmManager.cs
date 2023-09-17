@@ -7,34 +7,54 @@ public class FarmManager : MonoBehaviour
 
 
     public GameObject cow, duck, pig, goat, farm;
+    public Image farmcolor;
     public Image HungerBar;
     public int spawn;
+    public static int score;
+    public static float hunger;
     // Start is called before the first frame update
     void Start()
     {
         //CubeSpawnerScripts.SpawnerControl = 5;
-
+        score = HighScoreManager.score;
+        hunger = HungerManager.hunger;
+        HungerBar.fillAmount = hunger;
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        farmcolor = farm.GetComponent<Image>();
+
+        var tempColor = farmcolor.color;
+        tempColor.a = 1.0f;
+        farmcolor.color = tempColor;
+        farm.GetComponent<Button>().interactable = true;
         spawn = CubeSpawnerScripts.SpawnerControl;
-        HungerBar.fillAmount -= 1.0f/250 * Time.deltaTime;
-        if (CubeSpawnerScripts.Spawner == 5)
+        score = HighScoreManager.score;
+        HungerBar.fillAmount -= 1.0f/200 * Time.deltaTime;
+        hunger = HungerBar.fillAmount;
+        if (spawn == 5)
         {
             cow.SetActive(true);
         }
-        if (CubeSpawnerScripts.Spawner == 6)
+        if (spawn == 6)
         {
+            cow.SetActive(true);
             duck.SetActive(true);
         }
-        if (CubeSpawnerScripts.Spawner == 7)
+        if (spawn == 7)
         {
+            cow.SetActive(true);
+            duck.SetActive(true);
             pig.SetActive(true);
         }
-        if (CubeSpawnerScripts.Spawner == 8)
+        if (spawn == 8)
         {
+            cow.SetActive(true);
+            duck.SetActive(true);
+            pig.SetActive(true);
             goat.SetActive(true);
         }
     }

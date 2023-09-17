@@ -2238,7 +2238,9 @@ MonoBehaviour:
   pig: {fileID: 1891231310}
   goat: {fileID: 475067659}
   farm: {fileID: 1023027231}
+  farmcolor: {fileID: 0}
   HungerBar: {fileID: 2075648488}
+  spawn: 0
 --- !u!1 &695544184
 GameObject:
   m_ObjectHideFlags: 0
@@ -4077,6 +4079,10 @@ MonoBehaviour:
   - {fileID: -8035274071547644461, guid: 1504599ead7fad940b7303f5244f0d81, type: 3}
   - {fileID: -8035274071547644461, guid: 1504599ead7fad940b7303f5244f0d81, type: 3}
   - {fileID: -8035274071547644461, guid: 1504599ead7fad940b7303f5244f0d81, type: 3}
+  - {fileID: -8035274071547644461, guid: 1504599ead7fad940b7303f5244f0d81, type: 3}
+  - {fileID: -8035274071547644461, guid: 1504599ead7fad940b7303f5244f0d81, type: 3}
+  - {fileID: -8035274071547644461, guid: 1504599ead7fad940b7303f5244f0d81, type: 3}
+  - {fileID: -8035274071547644461, guid: 1504599ead7fad940b7303f5244f0d81, type: 3}
   currentCube: {fileID: 0}
   spawnPoint: {fileID: 1544810896}
   cow: {fileID: 0}
@@ -5836,7 +5842,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
@@ -6444,7 +6450,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0.394
+  m_FillAmount: 0.5
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0

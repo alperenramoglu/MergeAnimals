@@ -17,10 +17,14 @@ public class SceneControl : MonoBehaviour
     }
     public void LoadFarm()
     {
+        FarmManager.score = HighScoreManager.score;
+        
         SceneManager.LoadScene(1);
+        
     }
     public void LoadGame()
     {
+        HighScoreManager.score = FarmManager.score;
         SceneManager.LoadScene(0);
     }
 }

@@ -11,7 +11,7 @@ public class HighScoreManager : MonoBehaviour
     public static int animalControl=4;
     public TextMeshProUGUI newAnimalText;
     public TextMeshProUGUI HighScoreText;
-
+    public static int score;
    
     private void Awake()
     {
@@ -20,10 +20,17 @@ public class HighScoreManager : MonoBehaviour
     }
     private void Start()
     {
+        Puan = FarmManager.score;
+        score = Puan;
         scoreText.text = Puan.ToString();
         HighScoreText.text = PlayerPrefs.GetInt("HighScore", 0).ToString();
         newAnimalText.text = newAnimalPuan.ToString();
         
+    }
+    public void Update()
+    {
+
+        score = Puan;
     }
     public void ScorManager()
     {
@@ -39,7 +46,7 @@ public class HighScoreManager : MonoBehaviour
     }
     public void birdScore()
     {
-        newAnimalPuan += 2046;////////////////////////////////////2 oalcak
+        newAnimalPuan *= 2;////////////////////////////////////2 oalcak
         newAnimalText.text = newAnimalPuan.ToString();
         if (newAnimalPuan == 2048)
         {

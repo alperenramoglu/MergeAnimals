@@ -39,6 +39,7 @@ public class CubeSpawnerScripts : MonoBehaviour
             farm.GetComponent<Button>().interactable = false;
         }
         
+        
 
     }
     private void Update()
@@ -64,7 +65,7 @@ public class CubeSpawnerScripts : MonoBehaviour
 
     public void newAnimalControl()
     {
-        
+       
         if (Spawner == 4)
         {
             SpawnerControl = 4;
