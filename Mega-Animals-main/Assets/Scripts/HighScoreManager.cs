@@ -46,7 +46,7 @@ public class HighScoreManager : MonoBehaviour
     }
     public void birdScore()
     {
-        newAnimalPuan *= 2;////////////////////////////////////2 oalcak
+        newAnimalPuan += 2046;////////////////////////////////////2 oalcak
         newAnimalText.text = newAnimalPuan.ToString();
         if (newAnimalPuan == 2048)
         {

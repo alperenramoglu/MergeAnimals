@@ -20,6 +20,6 @@ public class HungerManager : MonoBehaviour
     {
         
         HungerBar.fillAmount -= 1.0f / 200 * Time.deltaTime;
-        
+        hunger = HungerBar.fillAmount; 
     }
 }
