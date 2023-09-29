@@ -10,13 +10,13 @@ public class FarmManager : MonoBehaviour
     public Image farmcolor;
     public Image HungerBar;
     public int spawn;
-    public static int score;
+    //public static int score;
     public static float hunger;
     // Start is called before the first frame update
     void Start()
     {
-        //CubeSpawnerScripts.SpawnerControl = 5;
-        score = HighScoreManager.score;
+        CubeSpawnerScripts.SpawnerControl = 5;
+        //score = HighScoreManager.score;
         hunger = HungerManager.hunger;
         HungerBar.fillAmount = hunger;
     }
@@ -32,7 +32,7 @@ public class FarmManager : MonoBehaviour
         farmcolor.color = tempColor;
         farm.GetComponent<Button>().interactable = true;
         spawn = CubeSpawnerScripts.SpawnerControl;
-        score = HighScoreManager.score;
+        //score = HighScoreManager.score;
         HungerBar.fillAmount -= 1.0f/200 * Time.deltaTime;
         hunger = HungerBar.fillAmount;
         if (spawn == 5)

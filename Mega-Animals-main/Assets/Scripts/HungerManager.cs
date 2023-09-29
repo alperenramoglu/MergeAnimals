@@ -6,6 +6,7 @@ public class HungerManager : MonoBehaviour
 {
 
     public Image HungerBar;
+    
     public static float hunger;
     // Start is called before the first frame update
     void Start()
@@ -20,6 +21,7 @@ public class HungerManager : MonoBehaviour
     {
         
         HungerBar.fillAmount -= 1.0f / 200 * Time.deltaTime;
-        hunger = HungerBar.fillAmount; 
+        hunger = HungerBar.fillAmount;
+        
     }
 }

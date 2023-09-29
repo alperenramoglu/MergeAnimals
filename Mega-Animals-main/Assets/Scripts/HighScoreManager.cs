@@ -6,7 +6,7 @@ using TMPro;
 public class HighScoreManager : MonoBehaviour
 {
     public int Puan;
-    public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI scoreText, scoreTextF;
     public int newAnimalPuan= 2;
     public static int animalControl=4;
     public TextMeshProUGUI newAnimalText;
@@ -20,9 +20,10 @@ public class HighScoreManager : MonoBehaviour
     }
     private void Start()
     {
-        Puan = FarmManager.score;
+        //Puan = FarmManager.score;
         score = Puan;
         scoreText.text = Puan.ToString();
+        scoreTextF.text = Puan.ToString();
         HighScoreText.text = PlayerPrefs.GetInt("HighScore", 0).ToString();
         newAnimalText.text = newAnimalPuan.ToString();
         
@@ -31,13 +32,14 @@ public class HighScoreManager : MonoBehaviour
     {
 
         score = Puan;
+        
     }
     public void ScorManager()
     {
         Puan += 5;
         scoreText.text = Puan.ToString();
-        
 
+        scoreTextF.text = Puan.ToString();
         if (Puan > PlayerPrefs.GetInt("HighScore", 0))
         {
             PlayerPrefs.SetInt("HighScore", Puan);
@@ -62,6 +64,7 @@ public class HighScoreManager : MonoBehaviour
     {
         Puan -= 10;
         scoreText.text = Puan.ToString();
+        scoreTextF.text = Puan.ToString();
     }
 
     }

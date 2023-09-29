@@ -19,7 +19,7 @@ public class CubeScripts : MonoBehaviour
     [SerializeField] HighScoreManager _gameManager;
     [SerializeField] FarmManager _farmManager;
 
-    [SerializeField] ParticleSystem _particleSystem;
+    [SerializeField] ParticleSystem _particleSystem, _particleSystemF, _particleSystemWALL;
 
     private Collider _collider;
     private float daynanicMat = 1f;
@@ -77,6 +77,13 @@ public class CubeScripts : MonoBehaviour
             _farmManager.HungerBar.fillAmount += 0.1f;
             Destroy(collision.gameObject);
         }
+        if (collision.gameObject.CompareTag("enemy03"))
+        {
+            _collider.enabled = false;
+            _particleSystem = Instantiate(_particleSystemWALL, gameObject.transform.position, Quaternion.identity);
+            Destroy(gameObject,0.6f);
+            _gameManager.ScorManager2();
+        }
        }
     private void Update()
     {
@@ -98,7 +105,7 @@ public class CubeScripts : MonoBehaviour
     }
     public IEnumerator SetCloseGameObject2()
     {
-        _particleSystem = Instantiate(_particleSystem, gameObject.transform.position, Quaternion.identity);
+        _particleSystem = Instantiate(_particleSystemF, gameObject.transform.position, Quaternion.identity);
         yield return new WaitForSeconds(0.4f);
         //Destroy(this.gameObject);
 

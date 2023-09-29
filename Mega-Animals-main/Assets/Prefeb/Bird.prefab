@@ -312,7 +312,10 @@ MonoBehaviour:
   IsMainCube: 0
   value: 2
   _gameManager: {fileID: 0}
+  _farmManager: {fileID: 0}
   _particleSystem: {fileID: 8202728001287004628, guid: dca5bba98a5503a4c895ec5cc0918b13, type: 3}
+  _particleSystemF: {fileID: 8202728001287004628, guid: 940632e6bed59d447b0a22f29d11863d, type: 3}
+  _particleSystemWALL: {fileID: 8202728001287004628, guid: 41daba741f28dae409d308d8db84b9c8, type: 3}
   _sprite: {fileID: 6460971779042573780}
   _Clip: {fileID: 8300000, guid: f0b5daa1ae8ae87478afb7a1ff734caf, type: 3}
 --- !u!65 &480209808375747837
