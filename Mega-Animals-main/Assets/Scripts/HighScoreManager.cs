@@ -12,7 +12,8 @@ public class HighScoreManager : MonoBehaviour
     public TextMeshProUGUI newAnimalText;
     public TextMeshProUGUI HighScoreText;
     public static int score;
-   
+    public Transform effectRefPoint;
+
     private void Awake()
     {
         Time.timeScale = 1f;
@@ -48,9 +49,9 @@ public class HighScoreManager : MonoBehaviour
     }
     public void birdScore()
     {
-        newAnimalPuan += 2046;////////////////////////////////////2 oalcak
+        newAnimalPuan *= 2;////////////////////////////////////2 oalcak
         newAnimalText.text = newAnimalPuan.ToString();
-        if (newAnimalPuan == 2048)
+        if (newAnimalPuan == 32)
         {
 
             CubeSpawnerScripts.Spawner += 1;

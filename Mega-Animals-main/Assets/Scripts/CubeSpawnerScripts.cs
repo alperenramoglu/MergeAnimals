@@ -14,7 +14,7 @@ public class CubeSpawnerScripts : MonoBehaviour
     public GameObject parentObject;
     public GameObject cow, duck, pig, goat,farm;
     public Image farmcolor;
-
+    public bool isGameScene;
 
     
    
@@ -70,38 +70,41 @@ public class CubeSpawnerScripts : MonoBehaviour
 
     public void newAnimalControl()
     {
-       
-        if (Spawner == 4)
+        if (isGameScene)
         {
-            SpawnerControl = 4;
-            cow.SetActive(true);
-           
-        }
-        if (Spawner == 5)
-        {
-            SpawnerControl = 5;
-            farmcolor = farm.GetComponent<Image>();
+            if (Spawner == 4)
+            {
+                SpawnerControl = 4;
+                cow.SetActive(true);
 
-            var tempColor = farmcolor.color;
-            tempColor.a = 1.0f;
-            farmcolor.color = tempColor;
-            farm.GetComponent<Button>().interactable = true;
-            cow.SetActive(false);
-            duck.SetActive(true);
-            
+            }
+            if (Spawner == 5)
+            {
+                SpawnerControl = 5;
+                farmcolor = farm.GetComponent<Image>();
+
+                var tempColor = farmcolor.color;
+                tempColor.a = 1.0f;
+                farmcolor.color = tempColor;
+                farm.GetComponent<Button>().interactable = true;
+                cow.SetActive(false);
+                duck.SetActive(true);
+
+            }
+            if (Spawner == 6)
+            {
+                SpawnerControl = 6;
+                duck.SetActive(false);
+                pig.SetActive(true);
+            }
+            if (Spawner == 7)
+            {
+                SpawnerControl = 7;
+                pig.SetActive(false);
+                goat.SetActive(true);
+            }
         }
-        if (Spawner == 6)
-        {
-            SpawnerControl = 6;
-            duck.SetActive(false);
-            pig.SetActive(true);
-        }
-        if (Spawner == 7)
-        {
-            SpawnerControl = 7;
-            pig.SetActive(false);
-            goat.SetActive(true);
-        }
+        
     }
    
 

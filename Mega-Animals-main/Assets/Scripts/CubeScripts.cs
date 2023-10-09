@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using DG.Tweening;
 
 public class CubeScripts : MonoBehaviour
 {
@@ -29,6 +30,7 @@ public class CubeScripts : MonoBehaviour
     [SerializeField] AudioClip _Clip;
 
     private float time = 0.8f;
+
 
     
 
@@ -56,12 +58,25 @@ public class CubeScripts : MonoBehaviour
                     {
                         if (cube.value == HighScoreManager.animalControl)
                         {
+                            if (_gameManager.newAnimalPuan >= 16)
+                            {
+                                cube.transform.DOScale(cube.transform.localScale / 4, 0.7f);
+                                cube.transform.DOMove(_gameManager.effectRefPoint.position, 1f).OnComplete(() => Destroy(cube.gameObject));
+                            }
+                            else
+                            {
+                                Destroy(cube.gameObject);
+                            }
                             _gameManager.birdScore();
+
+                        }
+                        else
+                        {
+                            Destroy(cube.gameObject);
                         }
                         b = Time.time;
 
                         _gameManager.ScorManager();
-                        Destroy(cube.gameObject);
 
                     }                   
                     _collider.material.dynamicFriction = daynanicMat;
@@ -71,18 +86,27 @@ public class CubeScripts : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("enemy02"))
         {
-            StartCoroutine(SetCloseGameObject2());
-            _gameManager.ScorManager2();
-            _collider.material.dynamicFriction = daynanicMat;
-            _farmManager.HungerBar.fillAmount += 0.1f;
+            if(_gameManager.Puan >= 10)
+            {
+                StartCoroutine(SetCloseGameObject2());
+                _gameManager.ScorManager2();
+                _collider.material.dynamicFriction = daynanicMat;
+                _farmManager.HungerBar.fillAmount += 0.1f;
+            }
             Destroy(collision.gameObject);
+
         }
         if (collision.gameObject.CompareTag("enemy03"))
         {
-            _collider.enabled = false;
-            _particleSystem = Instantiate(_particleSystemWALL, gameObject.transform.position, Quaternion.identity);
+            if (_gameManager.Puan >= 10)
+            {
+                _collider.enabled = false;
+                _particleSystem = Instantiate(_particleSystemWALL, gameObject.transform.position, Quaternion.identity);
+                _gameManager.ScorManager2();
+            }
+
             Destroy(gameObject,0.6f);
-            _gameManager.ScorManager2();
+
         }
        }
     private void Update()
