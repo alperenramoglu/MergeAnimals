@@ -62,7 +62,9 @@ public class CubeSpawnerScripts : MonoBehaviour
     }
     private CubeScripts PickRandomCube()
     {
+
         GameObject temp = Instantiate(cubeList[Random.Range(0, Spawner)].gameObject, spawnPoint.position, Quaternion.Euler(-30,-180,0));
+
         temp.transform.parent = parentObject.transform;
         return temp.GetComponent<CubeScripts>();
         
