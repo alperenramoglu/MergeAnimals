@@ -8,6 +8,7 @@ using DG.Tweening;
 
 public class CubeScripts : MonoBehaviour
 {
+
     static int staticID = 0;
     [HideInInspector] public int CubeID;
     [HideInInspector] public Color CubeColor;
@@ -16,6 +17,7 @@ public class CubeScripts : MonoBehaviour
     [HideInInspector] public bool IsMainCube;
 
     public int value;
+    public int animalId;
 
     [SerializeField] HighScoreManager _gameManager;
     [SerializeField] FarmManager _farmManager;
@@ -31,6 +33,7 @@ public class CubeScripts : MonoBehaviour
 
     private float time = 0.8f;
 
+    public int gameIndex = 0;
 
     
 
@@ -39,8 +42,16 @@ public class CubeScripts : MonoBehaviour
         CubeID = staticID++;
         _collider = GetComponent<Collider>();
         CubeRigidbody = GetComponent<Rigidbody>();
+
+        
+    }
+    private void Start()
+    {
         _gameManager = GameObject.Find("HighScoreManager").GetComponent<HighScoreManager>();
-        _farmManager = GameObject.Find("FarmManager").GetComponent<FarmManager>();
+        if (gameIndex == 1)
+        {
+            _farmManager = GameObject.Find("FarmManager").GetComponent<FarmManager>();
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -75,8 +86,22 @@ public class CubeScripts : MonoBehaviour
                             Destroy(cube.gameObject);
                         }
                         b = Time.time;
+                        if (animalId >= 0)
+                        {
+                            if (HighScoreManager.Instance.animalLevels[animalId] >= 1)
+                            {
+                                _gameManager.ScorManager(2);
+                            }
+                            else
+                            {
+                                _gameManager.ScorManager(1);
+                            }
+                        }
+                        else
+                        {
+                            _gameManager.ScorManager(1);
+                        }
 
-                        _gameManager.ScorManager();
 
                     }                   
                     _collider.material.dynamicFriction = daynanicMat;
@@ -91,7 +116,10 @@ public class CubeScripts : MonoBehaviour
                 StartCoroutine(SetCloseGameObject2());
                 _gameManager.ScorManager2();
                 _collider.material.dynamicFriction = daynanicMat;
-                _farmManager.HungerBar.fillAmount += 0.1f;
+                if (gameIndex == 1)
+                {
+                    _farmManager.HungerBar.fillAmount += 0.1f;
+                }
             }
             Destroy(collision.gameObject);
 

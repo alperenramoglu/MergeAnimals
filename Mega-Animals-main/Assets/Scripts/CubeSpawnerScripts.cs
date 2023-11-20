@@ -5,6 +5,13 @@ using UnityEngine.UI;
 
 public class CubeSpawnerScripts : MonoBehaviour
 {
+    public enum SceneState
+    {
+        Game,
+        Farm
+    }
+    public SceneState sceneState;
+
     public static CubeSpawnerScripts Instance;
     public static int Spawner=4;
     public List<CubeScripts> cubeList = new List<CubeScripts>();
@@ -16,8 +23,8 @@ public class CubeSpawnerScripts : MonoBehaviour
     public Image farmcolor;
     public bool isGameScene;
 
-    
-   
+
+
     public static int SpawnerControl;
     private void Awake()
     {
@@ -62,7 +69,12 @@ public class CubeSpawnerScripts : MonoBehaviour
     }
     private CubeScripts PickRandomCube()
     {
+        Debug.Log(cubeList.Count + "   " + spawnPoint + " sa " + Spawner);
         GameObject temp = Instantiate(cubeList[Random.Range(0, Spawner)].gameObject, spawnPoint.position, Quaternion.Euler(-30,-180,0));
+        if (sceneState == SceneState.Farm)
+        {
+            temp.GetComponent<CubeScripts>().gameIndex = 1;
+        }
         temp.transform.parent = parentObject.transform;
         return temp.GetComponent<CubeScripts>();
         
