@@ -5,23 +5,30 @@ using UnityEngine.UI;
 
 public class CubeSpawnerScripts : MonoBehaviour
 {
+    public enum SceneState
+    {
+        Game,
+        Farm
+    }
+    public SceneState sceneState;
+
     public static CubeSpawnerScripts Instance;
     public static int Spawner=4;
     public List<CubeScripts> cubeList = new List<CubeScripts>();
     public CubeScripts currentCube;
     public Transform spawnPoint;
-    private UIManager _uýManager;
+    private UIManager _uï¿½Manager;
     public GameObject parentObject;
     public GameObject cow, duck, pig, goat,farm;
     public Image farmcolor;
     public bool isGameScene;
 
-    
-   
+
+
     public static int SpawnerControl;
     private void Awake()
     {
-        _uýManager = GameObject.Find("Canvas").GetComponent<UIManager>();
+        _uï¿½Manager = GameObject.Find("Canvas").GetComponent<UIManager>();
 
         if (PlayerPrefs.HasKey("CuneCount") == false)
         {
@@ -62,9 +69,18 @@ public class CubeSpawnerScripts : MonoBehaviour
     }
     private CubeScripts PickRandomCube()
     {
-
+//<<<<<<< HEAD
+        Debug.Log(cubeList.Count + "   " + spawnPoint + " sa " + Spawner);
         GameObject temp = Instantiate(cubeList[Random.Range(0, Spawner)].gameObject, spawnPoint.position, Quaternion.Euler(-30,-180,0));
+        if (sceneState == SceneState.Farm)
+        {
+            temp.GetComponent<CubeScripts>().gameIndex = 1;
+        }
+//=======
 
+        //GameObject temp = Instantiate(cubeList[Random.Range(0, Spawner)].gameObject, spawnPoint.position, Quaternion.Euler(-30,-180,0));
+
+//>>>>>>> 4ee262776391a2dd8b6d68f76d4fdba576449644
         temp.transform.parent = parentObject.transform;
         return temp.GetComponent<CubeScripts>();
         

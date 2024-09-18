@@ -5,6 +5,10 @@ using TMPro;
 
 public class HighScoreManager : MonoBehaviour
 {
+    private static HighScoreManager instance;
+
+    public static HighScoreManager Instance { get { return instance; } }
+
     public int Puan;
     public TextMeshProUGUI scoreText, scoreTextF;
     public int newAnimalPuan= 2;
@@ -13,11 +17,21 @@ public class HighScoreManager : MonoBehaviour
     public TextMeshProUGUI HighScoreText;
     public static int score;
     public Transform effectRefPoint;
+    public int[] animalLevels;
 
     private void Awake()
     {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
         Time.timeScale = 1f;
         Application.targetFrameRate = 60;
+
     }
     private void Start()
     {
@@ -35,9 +49,9 @@ public class HighScoreManager : MonoBehaviour
         score = Puan;
         
     }
-    public void ScorManager()
+    public void ScorManager(int carpan)
     {
-        Puan += 5;
+        Puan += 5*carpan;
         scoreText.text = Puan.ToString();
 
         scoreTextF.text = Puan.ToString();

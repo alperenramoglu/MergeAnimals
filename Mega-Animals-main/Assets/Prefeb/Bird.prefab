@@ -311,6 +311,7 @@ MonoBehaviour:
   CubeRigidbody: {fileID: 480209808559388314}
   IsMainCube: 0
   value: 2
+  animalId: -1
   _gameManager: {fileID: 0}
   _farmManager: {fileID: 0}
   _particleSystem: {fileID: 8202728001287004628, guid: dca5bba98a5503a4c895ec5cc0918b13, type: 3}
@@ -318,6 +319,7 @@ MonoBehaviour:
   _particleSystemWALL: {fileID: 8202728001287004628, guid: 41daba741f28dae409d308d8db84b9c8, type: 3}
   _sprite: {fileID: 6460971779042573780}
   _Clip: {fileID: 8300000, guid: f0b5daa1ae8ae87478afb7a1ff734caf, type: 3}
+  gameIndex: 0
 --- !u!65 &480209808375747837
 BoxCollider:
   m_ObjectHideFlags: 0
