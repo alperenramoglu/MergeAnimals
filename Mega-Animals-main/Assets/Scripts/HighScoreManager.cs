@@ -51,7 +51,7 @@ public class HighScoreManager : MonoBehaviour
     {
         newAnimalPuan *= 2;////////////////////////////////////2 oalcak
         newAnimalText.text = newAnimalPuan.ToString();
-        if (newAnimalPuan == 32)
+        if (newAnimalPuan == 2048)
         {
 
             CubeSpawnerScripts.Spawner += 1;
